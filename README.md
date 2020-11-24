@@ -8,9 +8,18 @@ grep -RIl 'text' | xargs sed -i 's/text/replace/g'
 
 ### Get volume using amixer
 ```sh 
-amixer -M get Master | awk -- '/^ {2}M/ { print $4 }' | tr -d []
+amixer -M get Master | awk -- '/Mono:/ { print $4 }' | tr -d []
+```
+
+### Get battery percentage and status
+```sh
+# Percentage
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk -- '/percentage/ { print $2 }'
+
+# Status
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk -- '/state/ { print $2 }' | tr '-' ' '
 ```
 
 # License
-This software is licensed under the terms of MIT License (See [LICENSE](LICENSE)).  
+This project is licensed under the terms of MIT License (See [LICENSE](LICENSE)).  
 Copyright 2020 Ayush Bardhan Tripathy.
