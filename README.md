@@ -21,5 +21,5 @@ upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk -- '/state/ { print
 ```
 
 # License
-This project is licensed under the terms of MIT License (See [LICENSE](LICENSE)).  
+This project is licensed under the terms of MIT No Attribution License (See [LICENSE](LICENSE)).  
 Copyright 2020 Ayush Bardhan Tripathy.
